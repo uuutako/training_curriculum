@@ -39,12 +39,12 @@ class CalendarsController < ApplicationController
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
       wday_num = Date.today.wday #Date.today.wdayを利用して添字となる数値を得る
-      youbi = wday_num + x
+      hoge = wday_num + x
           #もしもwday_numが7以上であれば、7を引く
-      if youbi >= 7
-         youbi = youbi - 7 #7をこしたら０に戻す
+      if hoge >= 7
+         hoge = hoge - 7 #7をこしたら０に戻す
       end
-      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans , wday: wdays[youbi] }
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans , wday: wdays[hoge] }
 
       @week_days.push(days)
     end
